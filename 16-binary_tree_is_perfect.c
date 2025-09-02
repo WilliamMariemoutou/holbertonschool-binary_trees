@@ -10,18 +10,18 @@
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-    size_t left_height, right_height;
+	size_t left_height, right_height;
 
-    if (tree == NULL)
-        return 0;
+	if (tree == NULL)
+		return 0;
 
-    left_height = binary_tree_height(tree->left);
-    right_height = binary_tree_height(tree->right);
+	left_height = binary_tree_height(tree->left);
+	right_height = binary_tree_height(tree->right);
 
-    if (left_height > right_height)
-        return left_height + 1;
-    else
-        return right_height + 1;
+	if (left_height > right_height)
+		return left_height + 1;
+	else
+		return right_height + 1;
 }
 
 /**
@@ -49,22 +49,22 @@ size_t binary_tree_size(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-    size_t tree_height;
-    size_t actual_node_count;
-    size_t perfect_node_count;
-    size_t level;
-    size_t power_of_two = 1;
+	size_t tree_height;
+	size_t actual_node_count;
+	size_t perfect_node_count;
+	size_t level;
+	size_t power_of_two = 1;
 
-    if (tree == NULL)
-        return (0);
+	if (tree == NULL)
+		return (0);
 
-    tree_height = binary_tree_height(tree);
-    actual_node_count = binary_tree_size(tree);
+	tree_height = binary_tree_height(tree);
+	actual_node_count = binary_tree_size(tree);
 
-    for (level = 0; level < tree_height; level++)
-        power_of_two *= 2;
+	for (level = 0; level < tree_height; level++)
+		power_of_two *= 2;
 
-    perfect_node_count = power_of_two - 1;
+	perfect_node_count = power_of_two - 1;
 
-    return (actual_node_count == perfect_node_count);
+	return (actual_node_count == perfect_node_count);
 }
